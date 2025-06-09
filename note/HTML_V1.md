@@ -91,7 +91,7 @@
     - `width=device-width` **作用：** 将视口宽度设置为设备的物理屏幕宽度（以 CSS 像素为单位）。
 
     ```html
-
+        <meta name="viewport">
     ```
 
 ### `<body>` 内容标签
