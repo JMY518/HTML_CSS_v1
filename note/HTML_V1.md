@@ -88,11 +88,55 @@
     - **位置:** 最好放置在`<head>`标签内的前部，确保最先运行保证浏览器可以正确解析文本。  
 
     **视口移动** `viewport`   
-    - `width=device-width` **作用：** 将视口宽度设置为设备的物理屏幕宽度（以 CSS 像素为单位）。
 
+    - **核心目标**：   
+    1. 确保网页在不同设备上的正确显示（响应式布局）。
+    2. 避免页面缩放导致内容遮挡造成阅读以及操作困难。
+    3. 视频特殊分辨率显示器以及屏幕（部分高分辨率屏幕以及刘海屏等）
     ```html
         <meta name="viewport">
     ```
+    - **参数：**`width=device-width`   
+    **作用：**   将视口宽度设置为设备的物理屏幕宽度（以 CSS 像素为单位）。  
+    **重要性：** 确保CSS媒体查询功能（比如`@media (max-width:768px)`）可以正常工作。
+    避免移动端浏览器以桌面宽度渲染页面，导致内容过小以及排版混乱。
+    ```html
+        <meta name="viewport" content="width=device-width"> s
+    ```
+    - **参数：**`initial-scale=1.0`   
+    **作用：** 设置页面首次加载时的缩放比例为1.0（100%缩放）。   
+    **效果：** 用户无需手动缩放就可以查看到完整的网站内容。防止浏览器自动调整缩放比例   
+    **重要性：** 如未设置这项参数，部分设备以及浏览器可能会进行默认缩放，比如iPhone上的Safari浏览器的默认缩放为0.8。
+    ```html
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    ```
+    - **参数：** `maximum-scale=1.0` / `minimum-scale=1.0`
+    **作用：** 限制用户手动缩放的最大和最小比例。
+    ```html
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    ```
+    - **参数：** `user-scalable=no`    
+    **作用：** 禁止用户手动缩放页面。  
+    **适用场景：** 全屏交互式应用（如地图，绘图工具等），需要严格控制UI布局的场景（如电子书阅读器等）
+    - iOS以及Android最新版本以及逐步限制此功能以提升可访问性。
+    ```html
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    ```
+
+-**注意事项**
+1. **始终定义** `width=device-width`
+    - 避免移动端浏览器以桌面宽度渲染页面导致。
+2. **测试不同设备**
+    - 使用Chrome DevTools中的设备模式或真机测试。
+3. **处理刘海屏**
+    - 结合CSS`env()`属性调整边框。
+    ```css
+    body {
+        padding-top: env(safe-area-inset-top);
+    }
+    ```
+
+
 
 ### `<body>` 内容标签
 占位----
