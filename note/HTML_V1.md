@@ -437,6 +437,69 @@
 ```
 - **核心功能** 声明文档类型  
     告知浏览器当前使用的HTML标准(如 HTML5，HTML4.01，XHTML等)[跳转到HTML标准](#html标准)
+## 语义化结构标签
+语义化标签用于描述页面结构和内容含义，有助于[SEO](#seosearch-engine-optimization-搜索引擎优化)以及提高代码可读性和可访问性
+### `<header>`页眉
+```html
+<!-- 页面级别的头部 -->
+<header>
+    <h1>网站名称</h1>
+    <nav>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于</a></li>
+            <li><a href="#contact">联系</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- 文章级别的头部 -->
+<article>
+    <header>
+        <h2>文章标题</h2>
+        <p>发布时间：<time datetime="2023-12-01">2023年12月1日</time></p>
+        <p>作者：张三</p>
+    </header>
+    <p>文章内容...</p>
+</article>
+```
+- **用途：** 包括介绍性内容或者导航链接
+- **可包含：** 标题，导航菜单，搜索框，网站logo等
+
+### `<nav>` 导航
+```html
+<!-- 主导航 -->
+<nav>
+    <ul>
+        <li><a href="#home">首页</a></li>
+        <li><a href="#products">产品</a></li>
+        <li><a href="#services">服务</a></li>
+        <li><a href="#contact">联系我们</a></li>
+    </ul>
+</nav>
+
+<!-- 面包屑导航 -->
+<nav aria-label="面包屑导航">
+    <ol>
+        <li><a href="/">首页</a></li>
+        <li><a href="/category">分类</a></li>
+        <li>当前页面</li>
+    </ol>
+</nav>
+
+<!-- 文章内导航 -->
+<nav aria-label="文章目录">
+    <h3>目录</h3>
+    <ul>
+        <li><a href="#section1">第一节</a></li>
+        <li><a href="#section2">第二节</a></li>
+        <li><a href="#section3">第三节</a></li>
+    </ul>
+</nav>
+```
+- **用途：** 包含导航链接的区域
+- **类型：** 主导航，面包屑导航，页内导航，分页导航等
+- 
 ## 文本内容标签
 文本内容标签需要包含在[`<body>`](#body-内容标签)标签内。
 
